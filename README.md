@@ -6,13 +6,20 @@ They are used to develop [librespot](https://github.com/plietar/librespot), an o
 The `spotify-dump` tool intercepts packets by the Spotify desktop client before they are encrypted or after they are decrypted.
 It works by patching the `shn_encrypt` and `shn_decrypt` routines of the client at run time.
 
-This currently only works on 64 bit OS X/Linux.
+##### MacOS/Linux 64 bit
 
 To use, quit the Spotify application, and execute the `dump.sh` script with the path the spotify binary.
 
 ```
 ~/spotify-analyze/dump> ./dump.sh /Applications/Spotify.app/Contents/MacOS/Spotify
 ```
+
+###### Windows 64 bit
+
+Build the solution and make sure `injector.exe` and `core.dll` are located in the same folder as `Spotify.exe`.
+
+To use, quit the Spotify application, execute the `injector.exe` and then Spotify app.
+
 
 This will produce a `dump.pcap` in the current directory, which can be analyzed by the `spotify-dissect` tool.
 
